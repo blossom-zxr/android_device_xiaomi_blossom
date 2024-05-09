@@ -678,6 +678,10 @@ on boot
 on init
     symlink /dev/block/platform/bootdevice /dev/block/bootdevice
 
+on boot
+    # Power HAL
+    setprop vendor.powerhal.init 1
+
 # FPSGO FBT Game
 on boot
     insmod /vendor/lib/modules/fpsgo.ko

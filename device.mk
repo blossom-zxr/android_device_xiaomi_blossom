@@ -500,6 +500,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/mediatek \
     hardware/samsung \
     hardware/samsung/nfc \
+    hardware/mediatek/libmtkperf_client \
     $(LOCAL_PATH)
 
 # Runtime Resource Overlays

@@ -58,12 +58,6 @@ vendor/firmware/sec_s3nrn82_firmware.bin
 vendor/firmware/Conf_MultipleTest_aa.ini
 vendor/firmware/Conf_MultipleTest_ab.ini
 
-# Charger
-bin/kpoc_charger
-etc/init/kpoc_charger.rc
-lib/libshowlogo.so
-lib/libsysenv_system.so
-
 # Power
 vendor/etc/fstb.cfg
 vendor/lib/hw/power.default.so

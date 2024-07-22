@@ -616,10 +616,6 @@
     <!-- True if the device supports Sustained Performance Mode -->
     <bool name="config_sustainedPerformanceModeSupported">true</bool>
 
-    <!-- Will display the bouncer on one side of the display, and the current user icon and
-         user switcher on the other side -->
-    <bool name="config_enableBouncerUserSwitcher">false</bool>
-
     <!-- Whether or not enable the different threshold based on the durations of
          certain event type.
     -->

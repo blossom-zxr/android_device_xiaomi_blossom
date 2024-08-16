@@ -480,9 +480,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     remove_packages
 
-# Disable async MTE on system_server
+# Disable async MTE on a few process
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
-    persist.arm64.memtag.system_server=off
+    persist.arm64.memtag.system_server=off \
+    persist.arm64.memtag.app.com.android.se=off \
+    persist.arm64.memtag.app.com.google.android.bluetooth=off \
+    persist.arm64.memtag.app.com.android.nfc=off \
+    persist.arm64.memtag.process.system_server=off
 
 # Updater
 PRODUCT_PROPERTY_OVERRIDES += \

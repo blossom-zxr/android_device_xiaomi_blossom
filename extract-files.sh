@@ -69,6 +69,9 @@ function blob_fixup() {
             grep -q "libsensorndkbridge.so" "${2}" && \
             "${PATCHELF}" --replace-needed "libsensorndkbridge.so" "libsensorndkbridge-hidl.so" "${2}"
             ;;
+        system_ext/lib/libsource.so)
+            grep -q libshim_ui.so "$2" || "$PATCHELF" --add-needed libshim_ui.so "$2"
+            ;;
     esac
 }
 

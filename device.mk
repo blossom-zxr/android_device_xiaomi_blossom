@@ -453,7 +453,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshim_audio \
     libshim_beanpod \
-    libshim_vtservice
+    libshim_ui
 
 # Cgroup
 PRODUCT_COPY_FILES += \

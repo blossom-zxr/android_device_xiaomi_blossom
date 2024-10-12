@@ -120,7 +120,7 @@ ro.lmk.kill_timeout_ms=100
 ro.lmk.log_stats=false
 ro.lmk.use_minfree_levels=true
 ro.lmk.use_new_strategy=true
-ro.lmk.filecache_min_kb=110592
+ro.lmk.filecache_min_kb=153600
 
 # Logd
 ro.logd.kernel=false

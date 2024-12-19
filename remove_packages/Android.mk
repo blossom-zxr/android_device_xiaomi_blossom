@@ -9,6 +9,7 @@ LOCAL_OVERRIDES_PACKAGES := \
     Gmail2 \
     Maps \
     PrebuiltGmail \
+    QuickSearchBox \
     YouTube
 ifeq ($(NUKE_AUDIOFX),true)
 LOCAL_OVERRIDES_PACKAGES += \

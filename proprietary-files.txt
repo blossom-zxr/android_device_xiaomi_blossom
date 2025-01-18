@@ -437,7 +437,6 @@ vendor/etc/init/android.hardware.graphics.allocator@4.0-service-mediatek.rc
 vendor/etc/init/vendor.mediatek.hardware.gpu@1.0-service.rc
 vendor/etc/vintf/manifest/android.hardware.gpu@1.0-service.xml:vendor/etc/vintf/manifest/vendor.mediatek.hardware.gpu@1.0-service.xml
 vendor/etc/meow.cfg
-vendor/lib/egl/egl.cfg
 vendor/lib/egl/libEGL_mtk.so
 vendor/lib/egl/libGLES_meow.so
 vendor/lib/egl/libGLESv1_CM_mtk.so

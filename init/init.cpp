@@ -26,6 +26,14 @@ void load_dalvik_properties()
     char const *heapminfree;
     char const *heapmaxfree;
     char const *heaptargetutilization;
+
+    char const *partialstall;
+    char const *completestall;
+    char const *thrashlim;
+    char const *thrashlimdec;
+    char const *swapfreelow;
+    char const *upressure;
+
     struct sysinfo sys;
 
     sysinfo(&sys);
@@ -38,6 +46,14 @@ void load_dalvik_properties()
         heaptargetutilization = "0.5";
         heapminfree = "8m";
         heapmaxfree = "32m";
+        // from lmkd defaults for high perf devices
+        // except completestall, default 700
+        partialstall = "70";
+        completestall = "160";
+        thrashlim = "100";
+        thrashlimdec = "10";
+        swapfreelow = "20";
+        upressure = "50";
     } else if (sys.totalram >= 3ull * 1024 * 1024 * 1024) {
         // from - phone-xhdpi-4096-dalvik-heap.mk
         heapstartsize = "8m";
@@ -46,6 +62,14 @@ void load_dalvik_properties()
         heaptargetutilization = "0.6";
         heapminfree = "8m";
         heapmaxfree = "16m";
+        // from lmkd defaults for high perf devices
+        // tuned lower, clamped stall
+        partialstall = "80";
+        completestall = "180";
+        thrashlim = "70";
+        thrashlimdec = "20";
+        swapfreelow = "18";
+        upressure = "60";
         property_override("ro.config.art_lowmem", "true");
     } else {
         // from - phone-xhdpi-2048-dalvik-heap.mk
@@ -55,6 +79,14 @@ void load_dalvik_properties()
         heaptargetutilization = "0.75";
         heapminfree = "512k";
         heapmaxfree = "8m";
+        // from lmkd defaults for low ram devices
+        // tuned a bit "higher end"
+        partialstall = "120";
+        completestall = "360";
+        thrashlim = "60";
+        thrashlimdec = "35";
+        swapfreelow = "15";
+        upressure = "70";
         property_override("ro.config.art_lowmem", "true");
     }
 
@@ -64,6 +96,13 @@ void load_dalvik_properties()
     property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
     property_override("dalvik.vm.heapminfree", heapminfree);
     property_override("dalvik.vm.heapmaxfree", heapmaxfree);
+
+    property_override("ro.lmk.psi_partial_stall_ms", partialstall);
+    property_override("ro.lmk.psi_complete_stall_ms", completestall);
+    property_override("ro.lmk.thrashing_limit", thrashlim);
+    property_override("ro.lmk.thrashing_limit_decay", thrashlimdec);
+    property_override("ro.lmk.swap_free_low_percentage", swapfreelow);
+    property_override("ro.lmk.upgrade_pressure", upressure);
 }
 
 bool check_device_has_fp() {

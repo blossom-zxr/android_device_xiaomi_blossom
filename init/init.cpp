@@ -49,7 +49,7 @@ void load_dalvik_properties()
         // from lmkd defaults for high perf devices
         // except completestall, default 700
         partialstall = "70";
-        completestall = "160";
+        completestall = "140";
         thrashlim = "100";
         thrashlimdec = "10";
         swapfreelow = "20";
@@ -65,7 +65,7 @@ void load_dalvik_properties()
         // from lmkd defaults for high perf devices
         // tuned lower, clamped stall
         partialstall = "80";
-        completestall = "180";
+        completestall = "240";
         thrashlim = "70";
         thrashlimdec = "20";
         swapfreelow = "18";

@@ -54,12 +54,7 @@ vendor/firmware/soc1_0_ram_wifi_1_1_hdr.bin
 # Firmware - NFC
 vendor/firmware/sec_s3nrn82_firmware.bin
 
-# Firmware - Misc
-vendor/firmware/Conf_MultipleTest_aa.ini
-vendor/firmware/Conf_MultipleTest_ab.ini
-
 # Power
-vendor/etc/fstb.cfg
 vendor/lib/hw/power.default.so
 vendor/lib/libpowerhalwrap_vendor.so
 vendor/lib/vendor.mediatek.hardware.power@1.1.so
@@ -884,11 +879,6 @@ vendor/etc/camera/golden3.bin
 vendor/etc/camera/golden4.bin
 vendor/etc/camera/golden5.bin
 vendor/etc/camera/golden6.bin
-vendor/etc/camera/waDumpinputMainImg_3264x2448.nv21
-vendor/etc/camera/waDumpinputSubImg_1600x1200.nv21
-
-# Neural Networks
-vendor/lib/libneuropilot_hal_utils.so
 
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service|658d181ba1e0ebff8e27ecfefe033de593781cd2

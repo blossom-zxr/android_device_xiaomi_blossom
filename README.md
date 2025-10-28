@@ -37,6 +37,29 @@ Unified device tree for Xiaomi Redmi 9A family devices (blossom)
 + Poco C3
 + Poco C31
 
+## Device specifications
+
+* Rear camera 2, 3 and fingerprint sensor only applies for angelica, angelican, angelicain
+
+| Devices                 | Xiaomi "Blossom"                                            |
+| ----------------------- | :---------------------------------------------------------- |
+| SoC                     | MediaTek Helio G25 / G35 (12nm)                             |
+| CPU (G25)               | 4 x 2.0 GHz Cortex-A53 & 4 x 1.5 GHz Cortex-A53             |
+| CPU (G35)               | 4 x 2.3 GHz Cortex-A53 & 4 x 1.8 GHz Cortex-A53             |
+| GPU                     | PowerVR GE8320                                              |
+| Memory                  | 2GB / 3GB / 4GB / 6GB                                       |
+| Shipped Android version | 10, upgradable to 11                                        |
+| Storage                 | 32GB / 64GB / 128GB                                         |
+| MicroSD                 | Up to 256 GB                                                |
+| Battery                 | Non-removable Li-Po 5000 mAh                                |
+| Dimensions              | 164.9 x 77.1 x 9 mm                                         |
+| Display                 | 720 x 1600 (20:9), 6.53 inch                                |
+| Rear Camera 1           | 13 MP, f/2.2, (wide), PDAF                                  |
+| Rear Camera 2*          | 2 MP, f/2.4, (macro)                                        |
+| Rear Camera 3*          | 2 MP, f/2.4, (depth)                                        |
+| Front Camera            | 5 MP, f/2.2, (wide), 1.12µm                                 |
+| Sensors                 | Fingerprint (rear-mounted)*, accelerometer, proximity       |
+
 ## Note, the next
 
 <!---

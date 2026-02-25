@@ -106,6 +106,10 @@ PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic \
     android.hardware.usb@1.0.vendor:64
 
+# aed
+PRODUCT_PACKAGES += \
+    libaedv
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio.service.mediatek \

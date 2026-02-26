@@ -474,6 +474,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/mediatek \
+    hardware/samsung \
+    hardware/samsung/nfc \
     $(LOCAL_PATH)
 
 # Runtime Resource Overlays

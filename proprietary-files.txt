@@ -959,9 +959,6 @@ vendor/lib/libladder.so
 vendor/lib64/libaedv.so
 vendor/lib64/libladder.so
 
-# Performance
-vendor/etc/init/bootperf.rc
-
 # Configstore
 vendor/lib/libhwminijail.so
 

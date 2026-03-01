@@ -1,0 +1,26 @@
+From 99c541019b39facc4be1c5e7a979ca50a772436d Mon Sep 17 00:00:00 2001
+From: Crave <aosp@crave.io>
+Date: Sun, 1 Mar 2026 22:44:51 +0000
+Subject: [PATCH] patches: add bpf permission to common cap2 vector
+
+Change-Id: I58ee487c84007dafec29acd7934d2a74706280b6
+Signed-off-by: Crave <aosp@crave.io>
+---
+ private/access_vectors | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/private/access_vectors b/private/access_vectors
+index 6cd8c4ee5..1ddf13a7b 100644
+--- a/private/access_vectors
++++ b/private/access_vectors
+@@ -139,6 +139,7 @@ common cap2
+ 	block_suspend
+ 	audit_read
+ 	perfmon
++	bpf
+ }
+ 
+ #
+-- 
+2.51.0
+

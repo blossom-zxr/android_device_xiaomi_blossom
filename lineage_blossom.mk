@@ -24,6 +24,8 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # always nuke audiofx
 NUKE_AUDIOFX := true
 
+YAOYORO_MAINTAINER := fukiame
+
 PRODUCT_NAME := lineage_blossom
 PRODUCT_DEVICE := blossom
 PRODUCT_MANUFACTURER := Xiaomi

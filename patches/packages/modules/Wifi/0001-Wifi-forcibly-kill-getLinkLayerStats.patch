@@ -1,0 +1,108 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: fukiame <fukiame@proton.me>
+Date: Sat, 7 Mar 2026 12:19:52 +0700
+Subject: [PATCH] Wifi: forcibly kill getLinkLayerStats
+
+Signed-off-by: fukiame <fukiame@proton.me>
+
+diff --git a/framework/java/android/net/wifi/WifiManager.java b/framework/java/android/net/wifi/WifiManager.java
+index 3ed89ecd3dd948c0211b085986de9697cb00c56b..619b1797730acaffa4fcbe69467378149abea0ea 100644
+--- a/framework/java/android/net/wifi/WifiManager.java
++++ b/framework/java/android/net/wifi/WifiManager.java
+@@ -4071,7 +4071,7 @@ public class WifiManager {
+      * @return true if this adapter supports advanced power/performance counters
+      */
+     public boolean isEnhancedPowerReportingSupported() {
+-        return isFeatureSupported(WIFI_FEATURE_LINK_LAYER_STATS);
++        return false;
+     }
+ 
+     /**
+@@ -11798,4 +11798,4 @@ public class WifiManager {
+             throw e.rethrowFromSystemServer();
+         }
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/service/java/com/android/server/wifi/WifiServiceImpl.java b/service/java/com/android/server/wifi/WifiServiceImpl.java
+index 22396b63b469117cb8eed4b1e472378a1380a1c1..f3e97b9661d363a7b92c4e8a156fc4d5807b6e3d 100644
+--- a/service/java/com/android/server/wifi/WifiServiceImpl.java
++++ b/service/java/com/android/server/wifi/WifiServiceImpl.java
+@@ -3071,6 +3071,7 @@ public class WifiServiceImpl extends BaseWifiService {
+         if (mVerboseLoggingEnabled) {
+             mLog.info("getWifiActivityEnergyInfo uid=%").c(Binder.getCallingUid()).flush();
+         }
++        return null; /*
+         if ((getSupportedFeatures() & WifiManager.WIFI_FEATURE_LINK_LAYER_STATS) == 0) {
+             return null;
+         }
+@@ -3100,6 +3101,7 @@ public class WifiServiceImpl extends BaseWifiService {
+                 stats.rx_time,
+                 stats.on_time_scan,
+                 rxIdleTimeMillis);
++        */
+     }
+ 
+     /**
+diff --git a/service/java/com/android/server/wifi/hal/WifiStaIface.java b/service/java/com/android/server/wifi/hal/WifiStaIface.java
+index e847bd832ab8103077944d2e51736a5c078418c2..bc5ededd2b8a150bd15b39732644bb314ecd05d0 100644
+--- a/service/java/com/android/server/wifi/hal/WifiStaIface.java
++++ b/service/java/com/android/server/wifi/hal/WifiStaIface.java
+@@ -240,8 +240,10 @@ public class WifiStaIface implements WifiHal.WifiInterface {
+      */
+     @Nullable
+     public WifiLinkLayerStats getLinkLayerStats() {
++	return null; /*
+         return validateAndCall("getLinkLayerStats", null,
+                 () -> mWifiStaIface.getLinkLayerStats());
++        */
+     }
+ 
+     /**
+diff --git a/service/java/com/android/server/wifi/hal/WifiStaIfaceAidlImpl.java b/service/java/com/android/server/wifi/hal/WifiStaIfaceAidlImpl.java
+index 12009ee5f9b4daf33fefabce4f8f2afa7b055175..2dedbed1fab6fe4b251c6bfbf0bfbe6d2b8a8dc5 100644
+--- a/service/java/com/android/server/wifi/hal/WifiStaIfaceAidlImpl.java
++++ b/service/java/com/android/server/wifi/hal/WifiStaIfaceAidlImpl.java
+@@ -373,6 +373,7 @@ public class WifiStaIfaceAidlImpl implements IWifiStaIface {
+     @Nullable
+     public WifiLinkLayerStats getLinkLayerStats() {
+         final String methodStr = "getLinkLayerStats";
++        return null; /*
+         synchronized (mLock) {
+             try {
+                 if (!checkIfaceAndLogFailure(methodStr)) return null;
+@@ -388,6 +389,7 @@ public class WifiStaIfaceAidlImpl implements IWifiStaIface {
+             }
+             return null;
+         }
++        */
+     }
+ 
+     /**
+@@ -909,10 +911,6 @@ public class WifiStaIfaceAidlImpl implements IWifiStaIface {
+                 android.hardware.wifi.IWifiStaIface.FeatureSetMask.TDLS_OFFCHANNEL)) {
+             features |= WifiManager.WIFI_FEATURE_TDLS_OFFCHANNEL;
+         }
+-        if (hasCapability(halFeatureSet,
+-                android.hardware.wifi.IWifiStaIface.FeatureSetMask.LINK_LAYER_STATS)) {
+-            features |= WifiManager.WIFI_FEATURE_LINK_LAYER_STATS;
+-        }
+         if (hasCapability(halFeatureSet,
+                 android.hardware.wifi.IWifiStaIface.FeatureSetMask.RSSI_MONITOR)) {
+             features |= WifiManager.WIFI_FEATURE_RSSI_MONITOR;
+diff --git a/service/java/com/android/server/wifi/hal/WifiStaIfaceHidlImpl.java b/service/java/com/android/server/wifi/hal/WifiStaIfaceHidlImpl.java
+index b44d6e0739b31f7d6f439a4e86adf83ff7a4baa4..eea4b1f612fddc7e842784775fa9fce2f3408bf1 100644
+--- a/service/java/com/android/server/wifi/hal/WifiStaIfaceHidlImpl.java
++++ b/service/java/com/android/server/wifi/hal/WifiStaIfaceHidlImpl.java
+@@ -891,10 +891,6 @@ public class WifiStaIfaceHidlImpl implements IWifiStaIface {
+                 android.hardware.wifi.V1_0.IWifiStaIface.StaIfaceCapabilityMask.TDLS_OFFCHANNEL)) {
+             features |= WifiManager.WIFI_FEATURE_TDLS_OFFCHANNEL;
+         }
+-        if (hasCapability(caps,
+-                android.hardware.wifi.V1_0.IWifiStaIface.StaIfaceCapabilityMask.LINK_LAYER_STATS)) {
+-            features |= WifiManager.WIFI_FEATURE_LINK_LAYER_STATS;
+-        }
+         if (hasCapability(caps,
+                 android.hardware.wifi.V1_0.IWifiStaIface.StaIfaceCapabilityMask.RSSI_MONITOR)) {
+             features |= WifiManager.WIFI_FEATURE_RSSI_MONITOR;

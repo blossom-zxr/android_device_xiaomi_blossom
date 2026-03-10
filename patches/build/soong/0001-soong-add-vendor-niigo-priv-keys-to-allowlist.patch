@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: fukiame <fukiame@proton.me>
 Date: Tue, 4 Jun 2024 14:50:24 +0530
-Subject: soong: add vendor/niigo-priv/keys to allowlist
+Subject: [PATCH] soong: add vendor/niigo-priv/keys to allowlist
 
 inspired by https://github.com/LineageOS/android_build_soong/commit/7d4531838a6a1bd0d4d47d48080d83786510ad98
 
@@ -11,12 +11,12 @@ add our entry to the middle of the list to make unattended patching easier
 Signed-off-by: Sushrut1101 <guptasushrut@gmail.com>
 
 diff --git a/android/allowlists/allowlists.go b/android/allowlists/allowlists.go
-index 6e22831..969ad76 100644
+index 4c04a4131093b35313a40b3ed4803d251d13ab62..5874fb63e4a184369e2aaab4387ec4fd6326b224 100644
 --- a/android/allowlists/allowlists.go
 +++ b/android/allowlists/allowlists.go
-@@ -534,6 +534,9 @@ var (
+@@ -434,6 +434,9 @@ var (
+ 		"prebuilts/r8":/* recursive = */ false,
  		"prebuilts/runtime":/* recursive = */ false,
- 		"prebuilts/rust":/* recursive = */ true,
  
 +		// T25 - throw our key into soong allowlist
 +		"vendor/niigo-priv/keys":/* recursive = */ false,
@@ -24,6 +24,3 @@ index 6e22831..969ad76 100644
  		// not recursive due to conflicting workspace paths in tools/atest/bazel/rules
  		"tools/asuite/atest":/* recursive = */ false,
  		"tools/asuite/atest/bazel/reporter":/* recursive = */ true,
--- 
-2.44.0
-

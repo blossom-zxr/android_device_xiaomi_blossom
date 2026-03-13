@@ -28,6 +28,7 @@ $(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
 NUKE_AUDIOFX := true
 
 YAOYORO_MAINTAINER := zyexro
+TARGET_EXCLUDE_ADB_ROOT := true
 
 PRODUCT_NAME := lineage_blossom
 PRODUCT_DEVICE := blossom

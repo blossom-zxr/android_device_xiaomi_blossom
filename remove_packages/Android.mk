@@ -10,7 +10,18 @@ LOCAL_OVERRIDES_PACKAGES := \
     Maps \
     PrebuiltGmail \
     QuickSearchBox \
-    YouTube
+    YouTube \
+    Wellbeing \
+    GooglePartnerSetup \
+    AndroidAutoStub \
+    ApertureLensLauncher \
+    GoogleFeedback \
+    talkback \
+    SpeechServicesByGoogle \
+    MarkupGoogle \
+    PrebuiltExchange3Google \
+    GoogleContactsSyncAdapter \
+    GoogleCalendarSyncAdapter
 ifeq ($(NUKE_AUDIOFX),true)
 LOCAL_OVERRIDES_PACKAGES += \
     AudioFX \

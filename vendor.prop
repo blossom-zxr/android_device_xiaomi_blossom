@@ -162,6 +162,7 @@ ro.vendor.pref_scale_enable_cfg=1
 
 # Power HAL
 vendor.powerhal.disp.idle_support=false
+persist.vendor.powerhal.touchboost_duration=50
 
 # PQ
 ro.vendor.mtk_pq_color_mode=0

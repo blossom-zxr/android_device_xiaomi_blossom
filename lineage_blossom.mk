@@ -27,7 +27,7 @@ $(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
 # always nuke audiofx
 NUKE_AUDIOFX := true
 
-YAOYORO_MAINTAINER := fukiame
+YAOYORO_MAINTAINER := zyexro
 
 PRODUCT_NAME := lineage_blossom
 PRODUCT_DEVICE := blossom

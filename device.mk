@@ -511,6 +511,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Runtime Resource Overlays
 PRODUCT_PACKAGES += \
+    LineageSdkOverlayBlossom \
     FrameworksResOverlayBlossom \
     SettingsOverlayBlossom \
     SettingsProviderOverlayBlossom \

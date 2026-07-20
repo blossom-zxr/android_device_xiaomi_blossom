@@ -204,7 +204,7 @@
     },
     {
       "Name": "DoubleTapToWakeEnable",
-      "Path": "/proc/tp_gesture",
+      "Path": "/dev/null",
       "Values": [
         "1",
         "0"

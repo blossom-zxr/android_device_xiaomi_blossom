@@ -52,3 +52,6 @@
 /(system\/vendor|vendor)/bin/volte_ua.angelicain u:object_r:volte_ua_exec:s0
 /(system\/vendor|vendor)/bin/volte_imsm_93.angelicain u:object_r:volte_imsm_93_exec:s0
 /(system\/vendor|vendor)/bin/volte_md_status.angelicain u:object_r:volte_md_status_exec:s0
+
+# Battery
+/sys/devices/platform/charger(/.*)?    u:object_r:sysfs_batteryinfo:s0

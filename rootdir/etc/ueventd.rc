@@ -19,7 +19,7 @@
 /dev/block/platform/bootdevice/by-name/md1dsp    0660    root    system
 
 # Charger
-/sys/class/power_supply/battery  charging_enabled  0660  system  system
+/sys/devices/platform/charger/charging_enabled  0660  system  system
 
 # OTP
 /dev/otp                  0660   system     system

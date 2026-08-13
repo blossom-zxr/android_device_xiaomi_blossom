@@ -521,3 +521,8 @@ PRODUCT_PACKAGES += \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/blossom/blossom-vendor.mk)
+
+#Dolby
+$(call inherit-product-if-exists, hardware/dolby/dolby.mk)
+PRODUCT_COPY_FILES += \
+	$(DEVICE_PATH)/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml

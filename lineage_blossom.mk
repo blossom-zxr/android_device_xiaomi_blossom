@@ -27,6 +27,9 @@ $(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
 # always nuke audiofx
 NUKE_AUDIOFX := true
 
+# Dolby Atmos
+TARGET_INCLUDE_DOLBY := true
+
 YAOYORO_MAINTAINER := zyexro
 TARGET_EXCLUDE_ADB_ROOT := true
 

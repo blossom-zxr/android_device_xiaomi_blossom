@@ -208,5 +208,9 @@ WIFI_DRIVER_STATE_ON := "1"
 WIFI_DRIVER_STATE_OFF := "0"
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
+# Shim
+TARGET_LD_SHIM_LIBS += \
+    /vendor/bin/hw/vendor.mediatek.hardware.gpu@1.0-service|libshim_ged.so
+
 # Inherit the proprietary files
 include vendor/xiaomi/blossom/BoardConfigVendor.mk

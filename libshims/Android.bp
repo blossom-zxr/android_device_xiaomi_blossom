@@ -24,3 +24,10 @@ cc_library_shared {
     include_dirs: [ "system/keymaster/include" ],
     compile_multilib: "64"
 }
+
+cc_library_shared {
+    name: "libshim_ged",
+    srcs: ["libshim_ged.cpp"],
+    shared_libs: ["libged"],
+    vendor: true,
+}

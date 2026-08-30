@@ -22,5 +22,5 @@
 
     <!-- Some devices keep pseudo-reporting as charging when target is not reached.
          If this is the case, set this config to reset the node to false. -->
-    <bool name="config_chargingControlToggleResetToFalse">true</bool>
+    <bool name="config_chargingControlToggleResetToFalse">false</bool>
 </resources>

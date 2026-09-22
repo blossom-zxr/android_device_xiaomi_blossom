@@ -1,0 +1,56 @@
+From a599025c376742a5c1658825d31315d2847b8f8f Mon Sep 17 00:00:00 2001
+From: fukiame <fukiame@proton.me>
+Date: Mon, 25 May 2026 22:18:34 +0700
+Subject: [PATCH] soong: add fastbootd lock state bypass soong config var
+
+Signed-off-by: fukiame <fukiame@proton.me>
+---
+ build/soong/Android.bp     | 17 +++++++++++++++++
+ config/BoardConfigSoong.mk |  2 ++
+ 2 files changed, 19 insertions(+)
+
+diff --git a/build/soong/Android.bp b/build/soong/Android.bp
+index 6fb15b3b..dc445c8e 100644
+--- a/build/soong/Android.bp
++++ b/build/soong/Android.bp
+@@ -468,3 +468,20 @@ surfaceflinger_mtk_extensions {
+         },
+     },
+ }
++
++soong_config_module_type {
++    name: "fastbootd_hax",
++    module_type: "cc_defaults",
++    config_namespace: "lineageGlobalVars",
++    bool_variables: ["bypass_lock_state"],
++    properties: [ "cppflags" ],
++}
++
++fastbootd_hax {
++    name: "fastbootd_hacks",
++    soong_config_variables: {
++        bypass_lock_state: {
++            cppflags: ["-DFASTBOOT_BYPASS_LOCK_STATE"],
++        },
++    },
++}
+diff --git a/config/BoardConfigSoong.mk b/config/BoardConfigSoong.mk
+index 933ab10e..a8b8eed5 100644
+--- a/config/BoardConfigSoong.mk
++++ b/config/BoardConfigSoong.mk
+@@ -31,6 +31,7 @@ SOONG_CONFIG_lineageGlobalVars += \
+     aapt_version_code \
+     additional_gralloc_10_usage_bits \
+     bootloader_message_offset \
++    bypass_lock_state \
+     camera_override_format_from_reserved \
+     gralloc_handle_has_custom_content_md_reserved_size \
+     gralloc_handle_has_reserved_size \
+@@ -73,6 +74,7 @@ SOONG_CONFIG_lineageQcomVars += \
+ endif
+ 
+ # Soong bool variables
++SOONG_CONFIG_lineageGlobalVars_bypass_lock_state := $(TARGET_FASTBOOTD_BYPASS_LOCK_STATE)
+ SOONG_CONFIG_lineageGlobalVars_camera_override_format_from_reserved := $(TARGET_CAMERA_OVERRIDE_FORMAT_FROM_RESERVED)
+ SOONG_CONFIG_lineageGlobalVars_gralloc_handle_has_custom_content_md_reserved_size := $(TARGET_GRALLOC_HANDLE_HAS_CUSTOM_CONTENT_MD_RESERVED_SIZE)
+ SOONG_CONFIG_lineageGlobalVars_gralloc_handle_has_reserved_size := $(TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE)
